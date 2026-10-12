@@ -16,7 +16,7 @@ embutidos (Electron/WebView) com o erro *"Esse navegador ou app pode não ser se
 Sem root (em `~/.local`):
 
 ```sh
-git clone https://github.com/gustavomar/gemini-desktop-linux
+git clone https://github.com/gustavofullstack/gemini-desktop-linux
 cd gemini-desktop-linux
 ./install.sh
 ```
