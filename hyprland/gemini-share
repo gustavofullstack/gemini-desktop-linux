@@ -1,0 +1,13 @@
+#!/bin/bash
+# Compartilhar a janela ativa com o Gemini (equivalente ao ⌘+⌘ do app de macOS):
+# captura a janela em foco, copia a imagem e abre o Gemini para colar (Ctrl+V).
+set -e
+geo=$(hyprctl activewindow -j | jq -r '"\(.at[0]),\(.at[1]) \(.size[0])x\(.size[1])"')
+title=$(hyprctl activewindow -j | jq -r '.title')
+grim -g "$geo" - | wl-copy --type image/png
+if ! hyprctl clients -j | grep -q '"class": "gemini"'; then
+    setsid -f gemini-desktop >/dev/null 2>&1
+    sleep 3
+fi
+hyprctl dispatch "hl.dsp.focus({ workspace = 6 })" >/dev/null
+notify-send -a Gemini -i gemini-desktop "Janela copiada" "\"$title\" — cole no Gemini com Ctrl+V"

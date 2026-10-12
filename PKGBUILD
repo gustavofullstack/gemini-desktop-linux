@@ -6,7 +6,7 @@ pkgdesc="Gemini / Gemini Spark em janela própria para Linux (não oficial, perf
 arch=('any')
 url="https://github.com/gustavomar/gemini-desktop-linux"
 license=('MIT')
-depends=('firefox' 'sh')
+depends=('firefox' 'sh' 'grim' 'wl-clipboard' 'jq' 'libnotify')
 makedepends=('curl')
 source=("$pkgname-$pkgver.tar.gz::$url/archive/v$pkgver.tar.gz")
 sha256sums=('SKIP')
@@ -15,6 +15,7 @@ package() {
     cd "$pkgname-$pkgver"
     install -Dm755 gemini-desktop "$pkgdir/usr/bin/gemini-desktop"
     install -Dm755 hyprland/gemini-toggle "$pkgdir/usr/bin/gemini-toggle"
+    install -Dm755 hyprland/gemini-share "$pkgdir/usr/bin/gemini-share"
     install -Dm644 profile/user.js "$pkgdir/usr/share/gemini-desktop/profile/user.js"
     install -Dm644 profile/chrome/userChrome.css "$pkgdir/usr/share/gemini-desktop/profile/chrome/userChrome.css"
     install -Dm644 gemini-desktop.desktop "$pkgdir/usr/share/applications/gemini-desktop.desktop"

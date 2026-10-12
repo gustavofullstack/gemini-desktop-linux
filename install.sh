@@ -9,6 +9,10 @@ cp profile/user.js "$SHARE/profile/"
 cp profile/chrome/userChrome.css "$SHARE/profile/chrome/"
 sed "s|/usr/share/gemini-desktop|$SHARE|" gemini-desktop > "$PREFIX/bin/gemini-desktop"
 chmod +x "$PREFIX/bin/gemini-desktop"
+for t in gemini-toggle gemini-share; do
+    sed "s|gemini-desktop >/dev/null|$PREFIX/bin/gemini-desktop >/dev/null|" "hyprland/$t" > "$PREFIX/bin/$t"
+    chmod +x "$PREFIX/bin/$t"
+done
 sed "s|^Exec=gemini-desktop|Exec=$PREFIX/bin/gemini-desktop|" gemini-desktop.desktop \
     > "$PREFIX/share/applications/gemini-desktop.desktop"
 # Ícone baixado do Google na instalação (marca registrada: não é redistribuída neste repo)
