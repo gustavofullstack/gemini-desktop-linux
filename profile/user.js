@@ -1,0 +1,11 @@
+user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", true);
+user_pref("browser.shell.checkDefaultBrowser", false);
+user_pref("browser.startup.homepage", "https://gemini.google.com/spark");
+user_pref("browser.startup.page", 1);
+user_pref("browser.aboutwelcome.enabled", false);
+user_pref("datareporting.policy.dataSubmissionEnabled", false);
+user_pref("browser.tabs.inTitlebar", 0);
+user_pref("sidebar.revamp", false);
+user_pref("sidebar.verticalTabs", false);
+user_pref("browser.toolbars.bookmarks.visibility", "never");
+user_pref("browser.sessionstore.resume_from_crash", false);

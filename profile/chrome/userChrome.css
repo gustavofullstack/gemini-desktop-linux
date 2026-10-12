@@ -1,0 +1,2 @@
+/* Gemini.app: janela limpa, sem abas/barra de endereço */
+#TabsToolbar, #nav-bar, #PersonalToolbar, #sidebar-main, #sidebar-box, #titlebar { visibility: collapse !important; }

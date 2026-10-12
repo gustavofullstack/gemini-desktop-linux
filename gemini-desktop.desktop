@@ -1,0 +1,13 @@
+[Desktop Entry]
+Type=Application
+Version=1.0
+Name=Gemini
+GenericName=AI Assistant
+Comment=Gemini / Gemini Spark em janela própria (não oficial)
+Exec=gemini-desktop %U
+Icon=gemini-desktop
+Terminal=false
+Categories=Network;
+StartupNotify=true
+StartupWMClass=gemini
+Keywords=gemini;google;spark;ai;

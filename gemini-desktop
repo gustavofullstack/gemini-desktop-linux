@@ -1,0 +1,18 @@
+#!/bin/sh
+# Gemini Desktop (não oficial) — janela dedicada para gemini.google.com
+# Perfil Firefox isolado em modo "app" (sem abas/barra de endereço).
+# Usa Firefox porque o login do Google bloqueia navegadores embutidos (Electron/WebView).
+set -e
+DATA="${XDG_DATA_HOME:-$HOME/.local/share}/gemini-desktop"
+PROFILE="$DATA/firefox-profile"
+SHARE="${GEMINI_DESKTOP_SHARE:-/usr/share/gemini-desktop}"
+[ -d "$SHARE" ] || SHARE="$(dirname "$(readlink -f "$0")")"
+
+if [ ! -f "$PROFILE/user.js" ]; then
+    mkdir -p "$PROFILE/chrome"
+    cp "$SHARE/profile/user.js" "$PROFILE/user.js"
+    cp "$SHARE/profile/chrome/userChrome.css" "$PROFILE/chrome/userChrome.css"
+fi
+
+exec firefox --profile "$PROFILE" --no-remote --name gemini --class gemini \
+    "${1:-https://gemini.google.com/spark}"
