@@ -1,0 +1,13 @@
+#!/bin/bash
+# Atalho global do Gemini (equivalente ao Option+Space do app de macOS):
+# abre o Gemini se não estiver rodando; se estiver, alterna entre a mesa 6 e a mesa anterior.
+WS=6
+if ! hyprctl clients -j | grep -q '"class": "gemini"'; then
+    setsid -f gemini-desktop >/dev/null 2>&1
+    exit 0
+fi
+if hyprctl activeworkspace -j | grep -q "\"id\": $WS,"; then
+    hyprctl dispatch 'hl.dsp.focus({ workspace = "previous" })' >/dev/null
+else
+    hyprctl dispatch "hl.dsp.focus({ workspace = $WS })" >/dev/null
+fi

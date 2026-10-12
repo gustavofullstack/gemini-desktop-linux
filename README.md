@@ -34,6 +34,14 @@ Requer `firefox`. O Gemini Spark precisa de plano Google AI Pro/Ultra.
 Copie a regra de `hyprland/gemini.lua` (config em Lua) ou `hyprland/gemini.conf`
 (config clássica) para a sua configuração.
 
+## Atalho global
+
+`hyprland/gemini-toggle` faz o mesmo papel do atalho Option+Space do app oficial:
+abre o Gemini se ele estiver fechado e alterna entre a mesa do Gemini e a anterior.
+Copie para o seu `PATH` e use o bind de `hyprland/gemini.lua` ou `gemini.conf` (SUPER+I).
+Ele usa `hyprctl dispatch` no formato da config em Lua; na config clássica, troque por
+`hyprctl dispatch workspace 6` / `workspace previous`.
+
 ## Como funciona
 
 - `gemini-desktop` cria o perfil em `~/.local/share/gemini-desktop/firefox-profile`

@@ -14,6 +14,7 @@ sha256sums=('SKIP')
 package() {
     cd "$pkgname-$pkgver"
     install -Dm755 gemini-desktop "$pkgdir/usr/bin/gemini-desktop"
+    install -Dm755 hyprland/gemini-toggle "$pkgdir/usr/bin/gemini-toggle"
     install -Dm644 profile/user.js "$pkgdir/usr/share/gemini-desktop/profile/user.js"
     install -Dm644 profile/chrome/userChrome.css "$pkgdir/usr/share/gemini-desktop/profile/chrome/userChrome.css"
     install -Dm644 gemini-desktop.desktop "$pkgdir/usr/share/applications/gemini-desktop.desktop"
